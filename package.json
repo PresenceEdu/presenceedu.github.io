@@ -9,11 +9,13 @@
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
+    "browser-sync": "^2.13.0",
     "concurrently": "^2.1.0",
     "node-sass": "^3.7.0"
   },
   "scripts": {
-    "build": "concurrently \"node-sass static/style.scss -o public/\" \"babel static/script.es6.js -o public/script.js --presets es2015\""
+    "build": "concurrently \"node-sass static/style.scss -o public/\" \"babel static/script.es6.js -o public/script.js --presets es2015\"",
+    "dev": "concurrently \"node-sass -w static/style.scss -o public/\" \"babel -w static/script.es6.js -o public/script.js --presets es2015\" \"browser-sync start --server --files=index.html --files='public/*.css'\""
   },
   "repository": {
     "type": "git",
